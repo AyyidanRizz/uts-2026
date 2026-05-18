@@ -7,7 +7,7 @@
         <meta name="description" content="Professional Portfolio Website">
         <meta name="author" content="TemplateMo">
 
-        <title>First Portfolio Bootstrap 5 Theme</title>
+        <title>Portfolio Siti Ahsanu Nadiyya Rizal</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
