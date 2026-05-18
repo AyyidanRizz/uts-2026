@@ -9,7 +9,6 @@
 
         <title>First Portfolio Bootstrap 5 Theme</title>
 
-        <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,14 +21,12 @@
     
     <body>
 
-<!-- PRELOADER -->
         <section class="preloader">
             <div class="spinner">
                 <span class="spinner-rotate"></span>    
             </div>
         </section>
 
-        <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg py-2">
             <div class="container">
 
@@ -37,13 +34,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Menambahkan fw-bold fs-4 agar brand "First" juga ikut menyesuaikan -->
                 <a href="#" class="navbar-brand mx-auto mx-lg-0 fw-semibold fs-5">Welcome</a>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 m-auto">
                         <li class="nav-item">
-                            <!-- Ditambahkan fw-bold (tebal) dan fs-5 (ukuran font lebih besar) -->
                             <a class="nav-link click-scroll fw-semibold fs-6" href="#section_1">Home</a>
                         </li>
 
@@ -66,7 +61,6 @@
 
         <main>
 
-            <!-- 1. ARCHITECTURE: HOME SECTION -->
             <section class="hero d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
@@ -75,12 +69,12 @@
                             <div class="hero-text">
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
                                     <img src="{{ asset('front/images/photo_profile.jpeg') }}" class="avatar-image avatar-image-large img-fluid" alt="Joshua Profile">
-                                    <h1 class="hero-title ms-3 mb-0">Salam Kenal yak</h1>
+                                    <h1 class="hero-title ms-3 mb-0">Welcome my friends</h1>
                                 </div>
 
-                                <h2 class="mb-4">Selamat datang my friend!!</h2>
-                                <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Jadi selamat datang
-                                    di website portopolio saya yak, gak tau mau nulis apa...</a></p>
+                                <h2 class="mb-4">Selamat datang di web portfolio Saya</h2>
+                                <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Pada web ini, Saya akan menjelaskan
+                                    secara singkat tentang projek akhir</a></p>
                             </div>
                         </div>
                     </div>
@@ -89,14 +83,12 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#535da1" fill-opacity="1" d="M0,160L24,160C48,160,96,160,144,138.7C192,117,240,75,288,64C336,53,384,75,432,106.7C480,139,528,181,576,208C624,235,672,245,720,240C768,235,816,213,864,186.7C912,160,960,128,1008,133.3C1056,139,1104,181,1152,202.7C1200,224,1248,224,1296,197.3C1344,171,1392,117,1416,90.7L1440,64L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path></svg>
             </section>
 
-
-            <!-- 2. ARCHITECTURE: ABOUT SECTION (Profil, Stack Keahlian, & Bio) -->
             <section class="about section-padding" id="section_2">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-lg-6 col-12">
-                            <img src="{{ asset('front/images/couple-working-from-home-together-sofa.jpg') }}" class="about-image img-fluid" alt="Working Environment">
+                            <img src="{{ asset('front/images/projects/man.jpg') }}" class="about-image img-fluid" alt="Working Environment">
                         </div>
 
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
@@ -107,12 +99,12 @@
                                     <img src="{{ asset('front/images/photo_profile.jpeg') }}" class="avatar-image img-fluid" alt="Joshua Avatar">
                                 </div>
 
-                                <h3 class="pt-2 mb-3">A little bit about Me</h3>
+                                <h3 class="pt-2 mb-1">A little bit about Me</h3>
 
-                                <!-- Bio Singkat -->
-                                <p>Hi! Nama Saya Joshua, seorang pengembang web yang bersemangat banget!! Saya akan menciptakan aplikasi web yang bersih, efisien, dan ramah pengguna yang dapat membantu bisnis berkembang dan berintekraksi dengan audiens mereka secara efektif.</p>
+                                <p class="mb-1">Hi! Nama Saya Siti Ahsanu Nadiyya Rizal, biasa dipanggil Nadiyya. Seorang pengembang web yang bersemangat banget!! Saya akan menciptakan aplikasi web yang bersih, efisien, dan ramah pengguna yang dapat membantu bisnis berkembang dan berintekraksi dengan audiens mereka secara efektif.</p>
                                 
-                                <!-- Stack Keahlian (Skill Stack) -->
+                                <p class="text-left text-muted small mb-1">(Kalo menu Pengalaman gak muncul, berarti harus di input dulu di bagian admin yang skill)</p>
+                                <!-- "saya isinya Desain, figma, UI/UX kategori frontend, dan buat database (PostgreSQL) di kategori backend" -->
                                 <h5 class="mt-4 mb-3 text-primary">Pengalaman:</h5>
 
                                 <div class="row text-white mb-3">
@@ -141,7 +133,6 @@
                 </div>
             </section>
 
-            <!-- STATS COUNTER BAR -->
             <section class="featured section-padding">
                 <div class="container">
                     <div class="row">
@@ -153,9 +144,10 @@
                                 </div>
 
                                 <div class="profile-body">
-                                    <p><span class="profile-small-title">Name</span> <span>Joshua Morgan</span></p>
+                                    <p><span class="profile-small-title">Name</span> <span>Siti Ahsanu Nadiyya Rizal</span></p>
                                     <p><span class="profile-small-title">Phone</span> <span><a href="tel:0812-3456-7890">0812-3456-7890</a></span></p>
                                     <p><span class="profile-small-title">Github</span> <span><a href="https://github.com/AyyidanRizz">github.com/AyyidanRizz</a></span></p>
+                                    <p><span class="profile-small-title">Email</span> <span><a href="mailto:siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id">siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id</a></span></p>"
                                 </div>
                             </div>
                         </div>
@@ -175,8 +167,6 @@
                 </div>
             </section>
 
-
-            <!-- 3. ARCHITECTURE: SHOWCASE & PROJECT SECTION (Daftar Project Pernah/Sedang Dibuat) -->
             <section class="projects section-padding" id="section_3">
                 <div class="container">
                     <div class="row">
@@ -186,12 +176,15 @@
                                 <img src="{{ asset('front/images/white-desk-work-study-aesthetics.jpg') }}" class="avatar-image img-fluid" alt="Project Header">
                                 <h2 class="text-white ms-4 mb-0">Projects</h2>
                             </div>
-                            <p class="text-center text-muted mb-5">Dibawah ini adalah project akhir yang saya kerjakan</p>
+                            <p class="text-center text-muted mb-1">Dibawah ini adalah project yang saya kerjakan untuk project akhir mata kuliah Pemrogrmaan Web</p>
+                            <p class="text-center text-muted mb-3">(Kalo gak muncul, berarti harus di input dulu di bagian admin yang projects)</p>
                         </div>
 
                         <div class="clearfix"></div>
 
-                        <!-- Project 1: Zoik Agency -->
+                        <!-- dibagian ini saya pake database jadi saya gak tau nanti bakalan muncul
+                            atau gak pesan yang ada dibagian ini, soalnya harus isi dibagian admin
+                            baru nanti muncul disini -->
                         @foreach($projects as $project)
 
                         <div class="col-lg-12 col-md-6 col-12 mb-4">
@@ -203,6 +196,7 @@
 
                                     <p class="fw-bold fs-5 text-info">
                                         Project
+                                        <!-- dibagian ini saya isinya Sistem Pemesanan baju/Pakaian -->
                                     </p>
 
                                     <h3 class="projects-title mt-4 text-dark">
@@ -212,6 +206,8 @@
                                     <p class="fw-bold fs-5 text-dark">
                                         <strong class="text-info">
                                             Deskripsi:
+                                            <!-- "Sistem ini digunakan untuk berjualan secara online
+                                                agar bisa mencakup banyak pelanggan." -->
                                         </strong><br>
 
                                         {{ $project->deskripsi }}
@@ -220,6 +216,9 @@
                                     <p class="fw-bold fs-5 text-dark">
                                         <strong class="text-info">
                                             Analisis:
+                                            <!-- "Makin banyak brand-brand yang memilih tidak melanjutkan
+                                                jualan di e-commerce, karena di platform e-commerce besar
+                                                memiliki kebijakan yang membuat brand merugi" -->
                                         </strong><br>
 
                                         {{ $project->analisis }}
@@ -227,6 +226,9 @@
                                         <p class="fw-bold fs-5 text-dark">
                                         <strong class="text-info">
                                             Kebutuhan Sistem:
+                                            <!-- "Pada sistem ini akan ada fitur seperti melihat katalog,
+                                                seleksi kategori, manajemen produk, manajemen stok, dan
+                                                masih banya lagi" -->
                                         </strong><br>
 
                                         {{ $project->kebutuhan_sistem }}
@@ -235,24 +237,28 @@
                                     <p class="fw-bold fs-5 text-dark">
                                         <strong class="text-info">
                                             Tech Stack:
+                                            <!-- "Laravel, MariaDB, Docker, Navicat" -->
                                         </strong><br>
 
                                         {{ $project->tech_stack }}
                                     </p>
 
-                                    <div class="text-center mt-5">
+                                    <div class="text-left mt-5">
 
                                         <p class="fw-bold fs-5 text-dark">
                                             <strong class="text-info">
                                                 Diagram ERD:
                                             </strong><br>
                                         </p>
-                                        <div class="text-center mt-3">
+                                        <div class="mt-3">
                                             <img src="{{ asset('front/images/ERD_sementara.png') }}"
                                                 class="img-fluid rounded shadow"
                                                 alt="Diagram Project"
-                                                style="max-width: 900px; width:50%; border-radius:20px;">
+                                                style="max-width: 900px; width:30%; border-radius:20px;">
                                         </div>
+                                        <strong class="text-dark d-block mt-2">
+                                            ERD Sementara
+                                        </strong>
 
                                     </div>
 
@@ -268,7 +274,6 @@
                 </div>
             </section>
 
-            <!-- 4. ARCHITECTURE: CONTACT SECTION (Form Dinamis) -->
             <section class="contact section-padding" id="section_4">
                 <div class="container">
                     <div class="row">
@@ -308,11 +313,9 @@
                             </div>
                         </div>
 
-                        <!-- Dynamic Contact Form -->
-                        <!-- Catatan: Ganti method="POST" dan tentukan route action-nya untuk memproses data ke Database/Email Service Laravel -->
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
                             <form action="#" method="POST" class="custom-form contact-form" role="form">
-                                @csrf <!-- Amankan form dengan CSRF Token jika dipakai di Laravel -->
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-floating">
@@ -389,7 +392,6 @@
 
         </main>
 
-        <!-- FOOTER -->
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
@@ -404,7 +406,6 @@
             </div>
         </footer>
 
-        <!-- JAVASCRIPT FILES -->
         <script src="{{ asset('front/js/jquery.min.js') }}"></script>
         <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('front/js/jquery.sticky.js') }}"></script>
