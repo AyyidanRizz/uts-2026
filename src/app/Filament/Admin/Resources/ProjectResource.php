@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\ProjectResource\Pages;
 use App\Filament\Admin\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
@@ -41,6 +42,12 @@ class ProjectResource extends Resource
 
                 Textarea::make('tech_stack')
                     ->rows(4),
+
+                FileUpload::make('erd_path')
+                    ->label('Diagram ERD')
+                    ->image()
+                    ->directory('projek-erd')
+                    ->required(false),
             ]);
     }
 

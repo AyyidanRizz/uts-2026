@@ -7,7 +7,7 @@
         <meta name="description" content="Professional Portfolio Website">
         <meta name="author" content="TemplateMo">
 
-        <title>Portfolio Siti Ahsanu Nadiyya Rizal</title>
+        <title>Portfolio {{ $profile->name ?? 'Siti Ahsanu Nadiyya Rizal' }}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,13 +68,18 @@
                         <div class="col-lg-7 col-12">
                             <div class="hero-text">
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
-                                    <img src="{{ asset('front/images/photo_profile.jpeg') }}" class="avatar-image avatar-image-large img-fluid" alt="Joshua Profile">
+                                    <img src="{{ $profile && $profile->profile_photo ? asset('storage/' . $profile->profile_photo) : asset('front/images/photo_profile.jpeg') }}" 
+                                         class="avatar-image avatar-image-large img-fluid" 
+                                         alt="{{ $profile->name ?? 'Profile' }}">
                                     <h1 class="hero-title ms-3 mb-0">Welcome my friends</h1>
                                 </div>
 
-                                <h2 class="mb-4">Selamat datang di web portfolio Saya</h2>
-                                <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Pada web ini, Saya akan menjelaskan
-                                    secara singkat tentang projek akhir</a></p>
+                                <h2 class="mb-4">{{ $profile->hero_title ?? 'Selamat datang di web portfolio Saya' }}</h2>
+                                <p class="mb-4">
+                                    <a class="custom-btn btn custom-link" href="#section_2">
+                                        {{ $profile->hero_description ?? 'Pada web ini, Saya akan menjelaskan secara singkat tentang projek akhir' }}
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -88,27 +93,32 @@
                     <div class="row">
 
                         <div class="col-lg-6 col-12">
-                            <img src="{{ asset('front/images/projects/man.jpg') }}" class="about-image img-fluid" alt="Working Environment">
+                            <img src="{{ $profile && $profile->about_image ? asset('storage/' . $profile->about_image) : asset('front/images/bg1.jpg') }}"
+                                 class="about-image img-fluid"
+                                 alt="Working Environment"
+                                 style="aspect-ratio: 1/1; object-fit: cover; width: 100%; border-radius: 20px;">
                         </div>
 
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
                             <div class="about-thumb">
 
-                                <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
-                                    <h2 class="text-white me-4 mb-0">My Story</h2>
-                                    <img src="{{ asset('front/images/photo_profile.jpeg') }}" class="avatar-image img-fluid" alt="Joshua Avatar">
+                                <div class="section-title-wrap d-flex justify-content-start align-items-center mb-4">
+                                    <img src="{{ $profile && $profile->profile_photo ? asset('storage/' . $profile->profile_photo) : asset('front/images/photo_profile.jpeg') }}" 
+                                         class="avatar-image img-fluid me-4" 
+                                         alt="{{ $profile->name ?? 'Avatar' }}">
+                                    <h2 class="text-white mb-0">My Story</h2>
                                 </div>
 
                                 <h3 class="pt-2 mb-1">A little bit about Me</h3>
 
-                                <p class="mb-1">Hi! Nama Saya Siti Ahsanu Nadiyya Rizal, biasa dipanggil Nadiyya. Seorang pengembang web yang bersemangat banget!! Saya akan menciptakan aplikasi web yang bersih, efisien, dan ramah pengguna yang dapat membantu bisnis berkembang dan berintekraksi dengan audiens mereka secara efektif.</p>
+                                <p class="mb-1">
+                                    {{ $profile->about_story ?? 'Hi! Nama Saya Siti Ahsanu Nadiyya Rizal, biasa dipanggil Nadiyya. Seorang pengembang web yang bersemangat banget!!' }}
+                                </p>
                                 
                                 <p class="text-left text-muted small mb-1">(Kalo menu Pengalaman gak muncul, berarti harus di input dulu di bagian admin yang skill)</p>
-                                <!-- "saya isinya Desain, figma, UI/UX kategori frontend, dan buat database (PostgreSQL) di kategori backend" -->
                                 <h5 class="mt-4 mb-3 text-primary">Pengalaman:</h5>
 
                                 <div class="row text-white mb-3">
-
                                     <div class="col-6">
                                         <ul>
                                             @foreach($frontendSkills as $skill)
@@ -124,7 +134,6 @@
                                             @endforeach
                                         </ul>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -144,10 +153,10 @@
                                 </div>
 
                                 <div class="profile-body">
-                                    <p><span class="profile-small-title">Name</span> <span>Siti Ahsanu Nadiyya Rizal</span></p>
-                                    <p><span class="profile-small-title">Phone</span> <span><a href="tel:0812-3456-7890">0812-3456-7890</a></span></p>
-                                    <p><span class="profile-small-title">Github</span> <span><a href="https://github.com/AyyidanRizz">github.com/AyyidanRizz</a></span></p>
-                                    <p><span class="profile-small-title">Email</span> <span><a href="mailto:siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id">siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id</a></span></p>"
+                                    <p><span class="profile-small-title">Name</span> <span>{{ $profile->name ?? 'Siti Ahsanu Nadiyya Rizal' }}</span></p>
+                                    <p><span class="profile-small-title">Phone</span> <span><a href="tel:{{ $profile->phone ?? '' }}">{{ $profile->phone ?? '0812-3456-7890' }}</a></span></p>
+                                    <p><span class="profile-small-title">Github</span> <span><a href="{{ $profile->github ?? '#' }}" target="_blank">{{ $profile->github ?? 'github.com/AyyidanRizz' }}</a></span></p>
+                                    <p><span class="profile-small-title">Email</span> <span><a href="mailto:{{ $profile->email ?? '' }}">{{ $profile->email ?? 'siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id' }}</a></span></p>
                                 </div>
                             </div>
                         </div>
@@ -155,10 +164,22 @@
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
                             <div class="about-thumb">
                                 <div class="row">
-                                    <div class="col-lg-6 col-6 featured-border-bottom py-2"><strong class="featured-numbers">2</strong><p class="featured-text">Years of Experiences</p></div>
-                                    <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2"><strong class="featured-numbers">24</strong><p class="featured-text">Happy Customers</p></div>
-                                    <div class="col-lg-6 col-6 pt-4"><strong class="featured-numbers">64</strong><p class="featured-text">Project Finished</p></div>
-                                    <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4"><strong class="featured-numbers">7</strong><p class="featured-text">Digital Awards</p></div>
+                                    <div class="col-lg-6 col-6 featured-border-bottom py-2">
+                                        <strong class="featured-numbers">{{ $profile->experience_years ?? 0 }}</strong>
+                                        <p class="featured-text">Years of Experiences</p>
+                                    </div>
+                                    <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2">
+                                        <strong class="featured-numbers">{{ $profile->happy_customers ?? 0 }}</strong>
+                                        <p class="featured-text">Happy Customers</p>
+                                    </div>
+                                    <div class="col-lg-6 col-6 pt-4">
+                                        <strong class="featured-numbers">{{ $profile->projects_finished ?? 0 }}</strong>
+                                        <p class="featured-text">Project Finished</p>
+                                    </div>
+                                    <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4">
+                                        <strong class="featured-numbers">{{ $profile->digital_awards ?? 0 }}</strong>
+                                        <p class="featured-text">Digital Awards</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,98 +197,70 @@
                                 <img src="{{ asset('front/images/white-desk-work-study-aesthetics.jpg') }}" class="avatar-image img-fluid" alt="Project Header">
                                 <h2 class="text-white ms-4 mb-0">Projects</h2>
                             </div>
-                            <p class="text-center text-muted mb-1">Dibawah ini adalah project yang saya kerjakan untuk project akhir mata kuliah Pemrogrmaan Web</p>
+    
+                            <p class="text-center text-muted mb-1">
+                                {{ $profile->project_description ?? 'Dibawah ini adalah project yang saya kerjakan untuk project akhir mata kuliah Pemrogrmaan Web' }}
+                            </p>
+    
                             <p class="text-center text-muted mb-3">(Kalo gak muncul, berarti harus di input dulu di bagian admin yang projects)</p>
                         </div>
 
                         <div class="clearfix"></div>
 
-                        <!-- dibagian ini saya pake database jadi saya gak tau nanti bakalan muncul
-                            atau gak pesan yang ada dibagian ini, soalnya harus isi dibagian admin
-                            baru nanti muncul disini -->
                         @foreach($projects as $project)
-
                         <div class="col-lg-12 col-md-6 col-12 mb-4">
-
-                            <div class="projects-thumb p-4"
-                                style="min-height: 350px; border-radius:20px;">
-
+                            <div class="projects-thumb p-4" style="min-height: 350px; border-radius:20px;">
                                 <div class="projects-info">
-
-                                    <p class="fw-bold fs-5 text-info">
-                                        Project
-                                        <!-- dibagian ini saya isinya Sistem Pemesanan baju/Pakaian -->
-                                    </p>
+                                    <p class="fw-bold fs-5 text-info">Project</p>
 
                                     <h3 class="projects-title mt-4 text-dark">
                                         {{ $project->judul }}
                                     </h3>
 
                                     <p class="fw-bold fs-5 text-dark">
-                                        <strong class="text-info">
-                                            Deskripsi:
-                                            <!-- "Sistem ini digunakan untuk berjualan secara online
-                                                agar bisa mencakup banyak pelanggan." -->
-                                        </strong><br>
-
+                                        <strong class="text-info">Deskripsi:</strong><br>
                                         {{ $project->deskripsi }}
                                     </p>
 
                                     <p class="fw-bold fs-5 text-dark">
-                                        <strong class="text-info">
-                                            Analisis:
-                                            <!-- "Makin banyak brand-brand yang memilih tidak melanjutkan
-                                                jualan di e-commerce, karena di platform e-commerce besar
-                                                memiliki kebijakan yang membuat brand merugi" -->
-                                        </strong><br>
-
+                                        <strong class="text-info">Analisis:</strong><br>
                                         {{ $project->analisis }}
                                     </p>
-                                        <p class="fw-bold fs-5 text-dark">
-                                        <strong class="text-info">
-                                            Kebutuhan Sistem:
-                                            <!-- "Pada sistem ini akan ada fitur seperti melihat katalog,
-                                                seleksi kategori, manajemen produk, manajemen stok, dan
-                                                masih banya lagi" -->
-                                        </strong><br>
-
+                                    
+                                    <p class="fw-bold fs-5 text-dark">
+                                        <strong class="text-info">Kebutuhan Sistem:</strong><br>
                                         {{ $project->kebutuhan_sistem }}
                                     </p>
 
                                     <p class="fw-bold fs-5 text-dark">
-                                        <strong class="text-info">
-                                            Tech Stack:
-                                            <!-- "Laravel, MariaDB, Docker, Navicat" -->
-                                        </strong><br>
-
+                                        <strong class="text-info">Tech Stack:</strong><br>
                                         {{ $project->tech_stack }}
                                     </p>
 
                                     <div class="text-left mt-5">
-
                                         <p class="fw-bold fs-5 text-dark">
-                                            <strong class="text-info">
-                                                Diagram ERD:
-                                            </strong><br>
+                                            <strong class="text-info">Diagram ERD:</strong><br>
                                         </p>
                                         <div class="mt-3">
-                                            <img src="{{ asset('front/images/ERD_sementara.png') }}"
-                                                class="img-fluid rounded shadow"
-                                                alt="Diagram Project"
-                                                style="max-width: 900px; width:30%; border-radius:20px;">
+                                            @if($project->erd_path)
+                                                <img src="{{ asset('storage/' . $project->erd_path) }}"
+                                                     class="img-fluid rounded shadow"
+                                                     alt="Diagram Project {{ $project->judul }}"
+                                                     style="max-width: 900px; width:100%; border-radius:20px;">
+                                            @else
+                                                <img src="{{ asset('front/images/ERD_sementara.png') }}"
+                                                     class="img-fluid rounded shadow"
+                                                     alt="Diagram Sementara"
+                                                     style="max-width: 900px; width:30%; border-radius:20px;">
+                                            @endif
                                         </div>
                                         <strong class="text-dark d-block mt-2">
-                                            ERD Sementara
+                                            {{ $project->erd_path ? 'Diagram ERD' : 'ERD Sementara' }}
                                         </strong>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                         @endforeach
 
                     </div>
@@ -291,7 +284,7 @@
                             <div class="contact-info contact-info-border-start d-flex flex-column">
                                 <strong class="site-footer-title d-block mb-3">Stay connected</strong>
                                 <ul class="social-icon">
-                                    <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                                    <li class="social-icon-item"><a href="{{ $profile->github ?? '#' }}" target="_blank" class="social-icon-link bi-instagram"></a></li>
                                     <li class="social-icon-item"><a href="#" class="social-icon-link bi-youtube"></a></li>
                                 </ul>
 
@@ -303,13 +296,13 @@
                         <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
                             <div class="contact-info d-flex flex-column">
                                 <strong class="site-footer-title d-block mb-3">Github</strong>
-                                <p><a href="https://github.com/AyyidanRizz">My Github</a></p>
+                                <p><a href="{{ $profile->github ?? '#' }}" target="_blank">My Github</a></p>
 
                                 <strong class="site-footer-title d-block mb-3">Email</strong>
-                                <p><a href="mailto:siti.ahsanu.nadiyya.rizal@student.esaunggul.ac.id">My Email</a></p>
+                                <p><a href="mailto:{{ $profile->email ?? '' }}">{{ $profile->email ? 'My Email' : 'Email Belum Diatur' }}</a></p>
 
                                 <strong class="site-footer-title d-block mt-4 mb-3">Call</strong>
-                                <p class="mb-0"><a href="tel:0812-3456-7890">0812-3456-7890</a></p>
+                                <p class="mb-0"><a href="tel:{{ $profile->phone ?? '' }}">{{ $profile->phone ? 'My Phone' : 'Belum Diatur' }}</a></p>
                             </div>
                         </div>
 
@@ -398,7 +391,7 @@
                     <div class="col-lg-12 col-12">
                         <div class="copyright-text-wrap">
                             <p class="mb-0">
-                                <span class="copyright-text">Copyright © 2026 <a href="#">First Portfolio</a>. All rights reserved.</span>
+                                <span class="copyright-text">Copyright © 2026 <a href="#">{{ $profile->name ?? 'Portfolio' }}</a>. All rights reserved.</span>
                             </p>
                         </div>
                     </div>

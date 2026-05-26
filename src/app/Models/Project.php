@@ -15,5 +15,6 @@ class Project extends Model
         'analisis',
         'kebutuhan_sistem',
         'tech_stack',
+        'erd_path',
     ];
 }

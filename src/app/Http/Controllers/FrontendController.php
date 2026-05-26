@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -16,10 +17,13 @@ class FrontendController extends Controller
 
         $backendSkills = Skill::where('kategori', 'backend')->get();
 
+        $profile = Profile::first();
+
         return view('projects.index', compact(
             'projects',
             'frontendSkills',
-            'backendSkills'
+            'backendSkills',
+            'profile'
         ));
     }
 }

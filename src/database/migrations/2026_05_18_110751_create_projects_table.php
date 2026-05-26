@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('analisis');
             $table->text('kebutuhan_sistem')->nullable();
             $table->text('tech_stack')->nullable();
+            $table->string('erd_path')->nullable();
             $table->timestamps();
         });
     }
